@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Metadados -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título da página -->
+    <title>CleanInput - Limpeza de input</title>
+    <!-- Importando o arquivo CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Cabeçalho da página -->
+    <header>
+        <h1>CleanInput</h1>
+        <!-- Descrição do objetivo do aplicativo -->
+        <p>Limpeza de inputs, removendo: '.', ',', ';', '-', '/', '?', '@'</p>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <div class="conteiner">
+        <!-- Campo de input -->
+        <input type="text" id="inputText" placeholder="Digite um valor.">
+        <!-- Botão para limpar caracteres -->
+        <button onclick="removerCaracteres()">Clean Caracteres</button>
+        <!-- Saída do resultado -->
+        <div id="output" class="output"></div>
+
+    </div>
+
+
+
+    <!-- Rodapé da página -->
+    <footer>
+        <!-- Créditos -->
+        <h6>Victor Ferreira @</h6>
+    </footer>
+
+    <!-- Importando o arquivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>

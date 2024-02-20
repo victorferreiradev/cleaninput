@@ -1,0 +1,101 @@
+/* Reset de margens e preenchimentos */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Definição da fonte padrão */
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+/* Estilo do cabeçalho */
+
+header {
+    margin-top: 10px;
+    text-align: center;
+    /* Adicionado para centralizar o conteúdo */
+}
+
+
+/* Estilo do título */
+
+h1 {
+    color: #78bfd6;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Estilo do parágrafo */
+
+p {
+    margin-top: 10px;
+    font-size: 1rem;
+    /* Usando rem para o tamanho do texto */
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* Estilo do container */
+
+.conteiner {
+    margin: 5%;
+    /* Margens responsivas */
+    padding: 30px;
+    /* Padding fixo */
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Estilo do botão */
+
+button {
+    margin: 5px;
+    /* Margens responsivas */
+    padding: 10px;
+    /* Padding fixo */
+    border-radius: 10px;
+    border: none;
+    background: #78bfd6;
+    font-weight: bold;
+}
+
+input {
+    margin: 5px;
+    /* Margens responsivas */
+    padding: 10px;
+    /* Padding fixo */
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+}
+
+output {
+    margin: 2px;
+}
+
+
+/* Media query para ajustes em telas menores */
+
+@media screen and (max-width: 768px) {
+    .conteiner {
+        padding: 10px;
+        /* Ajuste do padding para telas menores */
+    }
+}
+
+h6 {
+    text-align: center;
+}
+
+footer {
+    margin-top: 23rem;
+    margin-bottom: 1rem;
+}

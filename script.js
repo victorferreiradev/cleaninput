@@ -2,7 +2,7 @@ function removerCaracteres() {
     // Recupera o valor do input
     var inputValor = document.getElementById('inputText').value;
     // Define os caracteres a serem removidos
-    var caracteresParaRemover = ['.', ',', ';', '-', '/', '?', '@'];
+    var caracteresParaRemover = ['.', ',', ';', '-', '/', '?', '@', ' '];
 
     // Itera sobre cada caractere a ser removido
     for (var i = 0; i < caracteresParaRemover.length; i++) {

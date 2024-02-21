@@ -64,7 +64,12 @@ button {
     border-radius: 10px;
     border: none;
     background: #78bfd6;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
     font-weight: bold;
+}
+
+button:hover {
+    background: #66a3b8;
 }
 
 input {
@@ -73,8 +78,14 @@ input {
     padding: 10px;
     /* Padding fixo */
     border-radius: 10px;
-    border: none;
     font-weight: bold;
+    border: 1px solid #78bfd6;
+    /* Cor da borda inicial */
+    transition: border-color 0.3s ease;
+}
+
+input:active {
+    border-color: #78bfd6;
 }
 
 output {
@@ -96,6 +107,6 @@ h6 {
 }
 
 footer {
-    margin-top: 23rem;
+    margin-top: 21rem;
     margin-bottom: 1rem;
 }

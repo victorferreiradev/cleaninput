@@ -13,7 +13,6 @@ body {
 }
 
 main {
-    border: solid red;
     margin: auto;
     width: 90%;
     height: 90%;
@@ -99,7 +98,8 @@ input::placeholder {
     font-size: 10px;
 }
 
-output {
+.output {
+    text-align: center;
     margin: 2px;
 }
 
@@ -107,13 +107,19 @@ output {
 /* Media query para ajustes em telas menores */
 
 @media screen and (max-width: 768px) {
+    header p {
+        font-size: 0.5em;
+    }
+    header h1 {
+        font-size: 2em;
+    }
     .conteiner {
         margin: 4% 1% 0% 1%;
         padding: 1%;
         /* Ajuste do padding para telas menores */
     }
     footer {
-        margin: 1% 1% 0% 1%;
+        margin-top: 1px;
     }
 }
 

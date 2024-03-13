@@ -1,133 +1,271 @@
-/* Reset de margens e preenchimentos */
-
 * {
     margin: 0;
     padding: 0;
 }
 
-
-/* Definição da fonte padrão */
-
 body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    padding: 5px;
 }
 
 main {
-    margin: auto;
-    width: 90%;
-    height: 90%;
+    height: 50vh;
+    border-radius: 20px;
+    background: rgba(225, 225, 225, 0.1);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+    margin-left: 20%;
+    margin-right: 20%;
 }
-
-
-/* Estilo do cabeçalho */
-
-header {
-    margin-top: 10px;
-    text-align: center;
-    /* Adicionado para centralizar o conteúdo */
-}
-
-
-/* Estilo do título */
 
 h1 {
+    letter-spacing: 1px;
+    text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.5);
+    font-size: 8vh;
     color: #78bfd6;
-    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    /* Adiciona elipses (...) se o texto for muito longo para caber */
+    text-overflow: ellipsis;
 }
-
-
-/* Estilo do parágrafo */
 
 p {
-    margin-top: 10px;
-    font-size: 1rem;
-    /* Usando rem para o tamanho do texto */
-    text-align: center;
-    font-weight: bold;
+    margin-top: 1px;
+    font-size: 12px;
 }
-
-
-/* Estilo do container */
 
 .conteiner {
-    margin: 2% 10% 1% 10%;
-    /* Margens responsivas */
-    padding: 1%;
-    /* Padding fixo */
-    border-radius: 20px;
-    background: rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    text-align: center;
+    margin-top: 2%;
+    padding: 5px;
 }
 
-
-/* Estilo do botão */
-
-button {
-    margin: 2%;
-    /* Margens responsivas */
-    padding: 10px;
-    /* Padding fixo */
+.conteiner input {
+    margin-top: 10px;
+    margin-bottom: 5px;
     border-radius: 10px;
-    border: none;
-    background: #78bfd6;
-    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
-    font-weight: bold;
-}
-
-button:hover {
-    background: #66a3b8;
-}
-
-input {
-    margin: 5px;
-    /* Margens responsivas. */
     padding: 10px;
-    /* Padding fixo */
-    border-radius: 10px;
     font-weight: bold;
     border: 1px solid #78bfd6;
-    /* Cor da borda inicial */
-    transition: border-color 0.4s ease;
+    transition: border-color 0.5s ease;
+}
+
+.conteiner input::placeholder {
+    font-size: 10px;
+    text-align: center;
 }
 
 input:active {
     border-color: #78bfd6;
 }
 
-input::placeholder {
-    font-size: 10px;
+.conteiner-out {
+    text-align: center;
+    margin-top: 5px;
+}
+
+
+/* Estilo do botão */
+
+button {
+    font-weight: bold;
+    padding: 4px;
+    border-radius: 10px;
+    border-color: #78bfd6;
+    color: #78bfd6;
+    border: 1px solid #78bfd6;
+    background: white;
+}
+
+button:hover {
+    background: #66a3b8;
+    transition: 0.5s ease;
+    color: #fff;
 }
 
 .output {
+    box-sizing: border-box;
+    font-size: 2vh;
     text-align: center;
-    margin: 2px;
-}
-
-
-/* Media query para ajustes em telas menores */
-
-@media screen and (max-width: 768px) {
-    header p {
-        font-size: 0.5em;
-    }
-    header h1 {
-        font-size: 2em;
-    }
-    .conteiner {
-        margin: 4% 1% 0% 1%;
-        padding: 1%;
-        /* Ajuste do padding para telas menores */
-    }
-    footer {
-        margin-top: 1px;
-    }
-}
-
-h6 {
-    text-align: center;
+    margin-top: 4px;
+    font-weight: bold;
 }
 
 footer {
-    margin-top: 23rem;
-    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 50vh;
+    font-size: 3vh;
+}
+
+
+/* Estilos para telas pequenas (até 576px) */
+
+@media only screen and (max-width: 576px) {
+    header {
+        font-size: 1rem;
+    }
+    header h1 {
+        color: #78bfd6;
+    }
+    header p {
+        margin-top: 2px;
+        margin-bottom: 2px;
+        font-size: 3.5vh;
+    }
+    main {
+        height: auto;
+    }
+    .conteiner {
+        flex-direction: column;
+    }
+    .conteiner input {
+        width: 60%;
+        padding: 1px 10px;
+        margin: 5px auto;
+    }
+    .conteiner input::placeholder {
+        font-size: 3vh;
+    }
+    .conteiner-out {
+        padding: 1px;
+        flex-direction: column;
+    }
+    button {
+        font-size: 2vh;
+        width: 60%;
+        margin: 10px auto;
+    }
+}
+
+
+/* Estilos para telas médias (de 577px a 768px) */
+
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+    header {
+        font-size: 1rem;
+    }
+    main {
+        height: auto;
+    }
+    .conteiner {
+        flex-direction: column;
+    }
+    .conteiner input {
+        width: 60%;
+        margin: 10px auto;
+    }
+    .conteiner-out {
+        flex-direction: column;
+    }
+    button {
+        width: 70%;
+        margin: 10px auto;
+    }
+    footer {
+        align-items: end;
+        height: 100px;
+    }
+}
+
+
+/* Estilos para telas médias a grandes (de 769px a 992px) */
+
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+    header {
+        font-size: 2.5rem;
+    }
+    main {
+        height: auto;
+    }
+    .conteiner {
+        flex-direction: row;
+    }
+    .conteiner input {
+        width: 50%;
+        margin: 10px;
+    }
+    .conteiner-out {
+        flex-direction: row;
+    }
+    button {
+        width: 50%;
+        margin: 10px;
+    }
+    footer {
+        align-items: end;
+        height: 120px;
+    }
+}
+
+
+/* Estilos para telas grandes (de 993px a 1200px) */
+
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+    header {
+        font-size: 2.5rem;
+    }
+    main {
+        height: auto;
+    }
+    .conteiner {
+        flex-direction: row;
+    }
+    .conteiner input {
+        width: 50%;
+        margin: 10px;
+    }
+    .conteiner-out {
+        flex-direction: row;
+    }
+    button {
+        width: 50%;
+        margin: 10px;
+    }
+    footer {
+        align-items: end;
+        height: 320px;
+    }
+}
+
+
+/* Estilos para telas extragrandes (acima de 1200px) */
+
+@media only screen and (min-width: 1201px) {
+    header {
+        font-size: 2rem;
+    }
+    .conteiner input::placeholder {
+        letter-spacing: 1px;
+        font-weight: bold;
+        font-size: 12px;
+    }
+    main {
+        height: auto;
+    }
+    .conteiner {
+        flex-direction: row;
+    }
+    .conteiner input {
+        width: 40%;
+        margin: 10px;
+    }
+    .conteiner-out {
+        flex-direction: row;
+    }
+    button {
+        padding: 14%s;
+        width: 40%;
+        margin: 10px;
+    }
+    footer {
+        align-items: end;
+        height: 340px;
+    }
 }

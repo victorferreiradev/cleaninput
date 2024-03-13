@@ -21,7 +21,7 @@ function removerCaracteres() {
     // Seleciona a div de saída
     let outputDiv = document.getElementById('output');
     // Define a mensagem de sucesso
-    let mensagem = 'Caracteres removidos com sucesso!';
+    let mensagem = 'Limpeza feita e copiada!';
     // Insere a mensagem na div de saída
     outputDiv.innerHTML = mensagem;
 
@@ -52,6 +52,8 @@ function removerText() {
             inputInText = inputInText.replace(textToRemove, '');
         }
     }
+
+
     // Atualiza o valor do input com os caracteres removidos
     document.getElementById('inputText').value = inputInText;
     // Seleciona a div de saída
@@ -59,7 +61,7 @@ function removerText() {
 
     let outputDiv = document.getElementById('output');
     // Define a mensagem de sucesso
-    let mensagem = 'Caracteres removidos com sucesso!';
+    let mensagem = 'Limpeza feita e copiada com sucesso!';
     // Insere a mensagem na div de saída
     outputDiv.innerHTML = mensagem;
 

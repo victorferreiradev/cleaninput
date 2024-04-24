@@ -12,12 +12,18 @@
 </head>
 
 <body>
+
+    <!-- Botão para ativar o modo escuro -->
+    <input type="checkbox" id="theme-checkbox" class="theme-checkbox" onclick="alternarModoEscuro() ">
+
     <!-- Cabeçalho da página -->
     <header>
         <h1>CleanInput</h1>
         <!-- Descrição do objetivo do aplicativo -->
         <p>Limpeza de inputs, removendo: '.' ',' ';' '-' '/' '?' '@'</p>
     </header>
+
+
 
     <main>
         <!-- Conteúdo principal -->
@@ -31,9 +37,9 @@
         <div id="output" class="output"></div>
         <!-- Botão para limpar caracteres -->
         <div class="conteiner-out">
-            <button onclick="removerCaracteres()">Clean Caracteres.</button>
+            <button class="btnClean" onclick="removerCaracteres()">Clean Caracteres.</button>
             <!-- Saída do resultado -->
-            <button onclick="removerText()">Clean Text.</button>
+            <button class="btnClean" onclick="removerText()">Clean Text.</button>
             <button class="convert" onclick="upperText()">Convert Maiúsculo.</button>
             <button class="convert" onclick="lowerText()">Convert Minúsculo.</button>
 

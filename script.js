@@ -1,5 +1,16 @@
 let resetTemp = 10000;
 
+// Inclusão do script JavaScript
+document.addEventListener("DOMContentLoaded", function() {
+    let docTitle = document.title;
+    window.addEventListener("blur", () => {
+        document.title = "Volte!";
+    })
+    window.addEventListener("focus", () => {
+        document.title = docTitle;
+    })
+});
+
 function msg(mensagem) {
     // Seleciona a div de saída
     let outputDiv = document.getElementById('output');
@@ -127,4 +138,19 @@ function copiarTexto() {
     // Remove o copyText temporário do documento
     document.body.removeChild(inputTemporario);
 
+}
+
+// Função para alternar entre os modos claro e escuro
+function alternarModoEscuro() {
+    const body = document.body;
+    // Verifica se o modo escuro está ativado
+    if (body.classList.contains('dark-mode')) {
+        // Se o modo escuro estiver ativado, remove a classe 'dark-mode' e adiciona a classe 'light-mode'
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+    } else {
+        // Se o modo escuro não estiver ativado, remove a classe 'light-mode' e adiciona a classe 'dark-mode'
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+    }
 }

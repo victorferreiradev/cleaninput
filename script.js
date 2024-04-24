@@ -15,7 +15,6 @@ function removerCaracteres() {
 
     // Atualiza o valor do input com os caracteres removidos
     document.getElementById('inputText').value = inputValor;
-
     copiarTexto()
 
     // Seleciona a div de saída
@@ -28,7 +27,9 @@ function removerCaracteres() {
     // Limpa a mensagem de sucesso após 2 segundos
     setTimeout(() => {
         outputDiv.innerText = '';
-    }, 2000);
+        document.getElementById('inputText').value = '';
+
+    }, 10000);
 }
 
 function removerText() {
@@ -69,6 +70,24 @@ function removerText() {
     setTimeout(() => {
         outputDiv.innerText = '';
     }, 2000);
+
+}
+
+function upperText() {
+    let inputInText = document.getElementById('inputText').value;
+    let upText = inputInText.toUpperCase();
+    document.getElementById('inputText').value = upText;
+    copiarTexto();
+    console.log(upText);
+
+}
+
+function lowerText() {
+    let inputInText = document.getElementById('inputText').value;
+    let upText = inputInText.toLowerCase();
+    document.getElementById('inputText').value = upText;
+    copiarTexto();
+    console.log(upText);
 
 }
 

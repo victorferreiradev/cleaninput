@@ -83,6 +83,22 @@ button {
     background: white;
 }
 
+.convert {
+    font-weight: bold;
+    padding: 4px;
+    border-radius: 10px;
+    border-color: #78d69c;
+    color: #78d69c;
+    border: 1px solid #78d69c;
+    background: white;
+}
+
+.convert:hover {
+    background: #78d69c;
+    transition: 0.5s ease;
+    color: #fff;
+}
+
 button:hover {
     background: #66a3b8;
     transition: 0.5s ease;

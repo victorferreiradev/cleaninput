@@ -2,14 +2,14 @@
 
 ## 📖 Descrição:
 
-CleanInput é uma ferramenta online que permite remover caracteres especiais de um texto. É útil para sanitizar dados, preparar textos para análise ou simplesmente para deixar o texto mais legível.
+CleanInput é uma ferramenta online que permite remover caracteres especiais e manipular texto de forma simples e eficiente. Seu objetivo principal é facilitar a limpeza de dados, preparar textos para análise ou deixar o texto mais legível.
 
 ## 💡 Funcionalidades:
 
-* Remove os seguintes caracteres: '.', ',', ';', '-', '/', '?', '@', ' '
-* Permite remover letras do alfabeto (a-z)
-* Mostra uma mensagem de confirmação após a limpeza
-* Copia automaticamente o texto limpo para a área de transferência
+* Remove os seguintes caracteres especiais: '.', ',', ';', '-', '/', '?', '@', ' '.
+* Permite remover letras do alfabeto (a-z).
+* Mostra uma mensagem de confirmação após a limpeza.
+* Copia automaticamente o texto limpo para a área de transferência.
 
 ## 📝 Como usar:
 
@@ -21,32 +21,32 @@ CleanInput é uma ferramenta online que permite remover caracteres especiais de 
 
 ## Exemplo:
 
-## ✏️ Entrada:
+### ✏️ Entrada:
 
 ```
 Este é um texto com caracteres especiais.,;-/?!@
 ```
 
-## 🔎 Saída:
+### 🔎 Saída:
 
 ```
 Esteeumtextocomcaracteresespeciais
 ```
 
-Observações:
+## Observações:
 
 * A ferramenta é gratuita e pode ser usada por qualquer pessoa.
-* O código da ferramenta está disponível no GitHub: https://github.com/victorferreiradev/cleaninput/
+* O código-fonte da ferramenta está disponível no GitHub: [Victor Ferreira - CleanInput](https://github.com/victorferreiradev/cleaninput/)
 * Sinta-se à vontade para contribuir com o projeto ou enviar sugestões de melhorias.
 
+## Licença
 
-Licença
+Este projeto é licenciado sob a Licença MIT. Para mais detalhes, consulte o arquivo [LICENSE](https://github.com/victorferreiradev/cleaninput/blob/main/LICENSE).
 
-Este projeto é licenciado sob a licença insira a licença desejada, por exemplo, MIT: https://opensource.org/licenses/MIT.
-
-Autor
+## Autor
 
 Victor Ferreira
 
-https://github.com/victorferreiradev
+[GitHub](https://github.com/victorferreiradev)
 
+---

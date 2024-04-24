@@ -1,15 +1,21 @@
+let resetTemp = 10000;
+
 function msg(mensagem) {
     // Seleciona a div de saída
     let outputDiv = document.getElementById('output');
     // Insere a mensagem na div de saída
     outputDiv.innerHTML = mensagem;
+    // Limpa a mensagem de sucesso após 2 segundos
+    setTimeout(() => {
+        outputDiv.innerText = '';
+    }, resetTemp);
 }
 
 function removerCaracteres() {
     // Recupera o valor do input
     let inputValor = document.getElementById('inputText').value;
     // Define os caracteres a serem removidos
-    let caracteresParaRemover = ['.', ',', ';', '-', '/', '?', '@', ' '];
+    let caracteresParaRemover = ['.', ',', ';', '-', '/', '?', '@', ' ', ':'];
 
     // Itera sobre cada caractere a ser removido
     for (let charToRemove of caracteresParaRemover) {
@@ -28,10 +34,9 @@ function removerCaracteres() {
 
     // Limpa a mensagem de sucesso após 2 segundos
     setTimeout(() => {
-        outputDiv.innerText = '';
         document.getElementById('inputText').value = '';
 
-    }, 10000);
+    }, resetTemp);
 }
 
 function removerText() {
@@ -45,7 +50,6 @@ function removerText() {
     for (let i = 97; i <= 122; i++) {
         alfabeto.push(String.fromCharCode(i)); // Converte o código ASCII para caractere e adiciona ao array
     }
-    console.log(alfabeto);
 
     // Itera sobre cada caractere a ser removido
     for (let textToRemove of alfabeto) {
@@ -66,10 +70,9 @@ function removerText() {
 
     // Limpa a mensagem de sucesso após 2 segundos
     setTimeout(() => {
-        outputDiv.innerText = '';
         document.getElementById('inputText').value = '';
 
-    }, 10000);
+    }, resetTemp);
 
 }
 
@@ -82,10 +85,9 @@ function upperText() {
 
     // Limpa a mensagem de sucesso após 2 segundos
     setTimeout(() => {
-        outputDiv.innerText = '';
         document.getElementById('inputText').value = '';
 
-    }, 10000);
+    }, resetTemp);
 }
 
 function lowerText() {
@@ -99,10 +101,9 @@ function lowerText() {
 
     // Limpa a mensagem de sucesso após 2 segundos
     setTimeout(() => {
-        outputDiv.innerText = '';
         document.getElementById('inputText').value = '';
 
-    }, 10000);
+    }, resetTemp);
 }
 
 

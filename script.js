@@ -1,3 +1,10 @@
+function msg(mensagem) {
+    // Seleciona a div de saída
+    let outputDiv = document.getElementById('output');
+    // Insere a mensagem na div de saída
+    outputDiv.innerHTML = mensagem;
+}
+
 function removerCaracteres() {
     // Recupera o valor do input
     let inputValor = document.getElementById('inputText').value;
@@ -17,12 +24,7 @@ function removerCaracteres() {
     document.getElementById('inputText').value = inputValor;
     copiarTexto()
 
-    // Seleciona a div de saída
-    let outputDiv = document.getElementById('output');
-    // Define a mensagem de sucesso
-    let mensagem = 'Limpeza feita e copiada!';
-    // Insere a mensagem na div de saída
-    outputDiv.innerHTML = mensagem;
+    msg("Limpeza feita e copiada!");
 
     // Limpa a mensagem de sucesso após 2 segundos
     setTimeout(() => {
@@ -60,16 +62,14 @@ function removerText() {
     // Seleciona a div de saída
     copiarTexto()
 
-    let outputDiv = document.getElementById('output');
-    // Define a mensagem de sucesso
-    let mensagem = 'Limpeza feita e copiada com sucesso!';
-    // Insere a mensagem na div de saída
-    outputDiv.innerHTML = mensagem;
+    msg('Texto removido!');
 
     // Limpa a mensagem de sucesso após 2 segundos
     setTimeout(() => {
         outputDiv.innerText = '';
-    }, 2000);
+        document.getElementById('inputText').value = '';
+
+    }, 10000);
 
 }
 
@@ -78,17 +78,31 @@ function upperText() {
     let upText = inputInText.toUpperCase();
     document.getElementById('inputText').value = upText;
     copiarTexto();
-    console.log(upText);
+    msg('Resultado:  ' + upText);
 
+    // Limpa a mensagem de sucesso após 2 segundos
+    setTimeout(() => {
+        outputDiv.innerText = '';
+        document.getElementById('inputText').value = '';
+
+    }, 10000);
 }
 
 function lowerText() {
     let inputInText = document.getElementById('inputText').value;
-    let upText = inputInText.toLowerCase();
-    document.getElementById('inputText').value = upText;
+    let lText = inputInText.toLowerCase();
+    document.getElementById('inputText').value = lText;
     copiarTexto();
-    console.log(upText);
 
+    msg('Resultado:  ' + lText);
+
+
+    // Limpa a mensagem de sucesso após 2 segundos
+    setTimeout(() => {
+        outputDiv.innerText = '';
+        document.getElementById('inputText').value = '';
+
+    }, 10000);
 }
 
 

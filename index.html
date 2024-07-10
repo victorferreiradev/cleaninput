@@ -18,38 +18,31 @@
 
     <!-- Cabeçalho da página -->
     <header>
-        <h1>CleanInput</h1>
-        <!-- Descrição do objetivo do aplicativo -->
-        <p>Limpeza de inputs, removendo: '.' ',' ';' '-' '/' '?' '@'</p>
+        <div class="header-box">
+            <h1>CleanInput</h1>
+            <!-- Descrição do objetivo do aplicativo -->
+            <p>Limpeza de inputs, removendo: '.' ',' ';' '-' '/' '?' '@' '$'</p>
+        </div>
     </header>
-
-
 
     <main>
         <!-- Conteúdo principal -->
-        <div class="conteiner">
+        <div class="container">
             <!-- Campo de input -->
             <input type="text" id="inputText" placeholder="Digite o conteúdo a ser limpo.">
 
-
-
+            <div id="output" class="output"></div>
+            <!-- Botão para limpar caracteres -->
+            <div class="container-out">
+                <button class="btnClean" onclick="removerCaracteres()">Clean Caracteres.</button>
+                <!-- Saída do resultado -->
+                <button class="btnClean" onclick="removerText()">Clean Text.</button>
+                <button class="convert" onclick="upperText()">Convert Maiúsculo.</button>
+                <button class="convert" onclick="lowerText()">Convert Minúsculo.</button>
+            </div>
         </div>
-        <div id="output" class="output"></div>
-        <!-- Botão para limpar caracteres -->
-        <div class="conteiner-out">
-            <button class="btnClean" onclick="removerCaracteres()">Clean Caracteres.</button>
-            <!-- Saída do resultado -->
-            <button class="btnClean" onclick="removerText()">Clean Text.</button>
-            <button class="convert" onclick="upperText()">Convert Maiúsculo.</button>
-            <button class="convert" onclick="lowerText()">Convert Minúsculo.</button>
-
-
-
-        </div>
-
-
-
     </main>
+
     <!-- Rodapé da página -->
     <footer>
         <!-- Créditos -->
@@ -57,6 +50,3 @@
     </footer>
     <!-- Importando o arquivo JavaScript -->
     <script src="script.js"></script>
-</body>
-
-</html>

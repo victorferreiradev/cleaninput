@@ -1,0 +1,370 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+
+    
+}
+
+main {
+    height: 50vh;
+    border-radius: 20px;
+    background: rgba(225, 225, 225, 0.1);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+h1 {
+    letter-spacing: 1px;
+    text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.5);
+    font-size: 8vh;
+    color: #78bfd6;
+    white-space: nowrap;
+    /* Adiciona elipses (...) se o texto for muito longo para caber */
+    text-overflow: ellipsis;
+}
+
+header p {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.conteiner {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    text-align: center;
+    margin-top: 2%;
+    padding: 5px;
+}
+
+.conteiner input {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: bold;
+    border: 1px solid #78bfd6;
+    transition: border-color 0.5s ease;
+}
+
+.conteiner input::placeholder {
+    font-size: 10px;
+    text-align: center;
+}
+
+input:active {
+    border-color: #78bfd6;
+}
+
+.conteiner-out {
+    text-align: center;
+    margin-top: 5px;
+}
+
+
+/* Estilo do botão */
+
+button {
+    font-weight: bold;
+    padding: 4px;
+    border-radius: 10px;
+    border-color: #78bfd6;
+    color: #78bfd6;
+    border: 1px solid #78bfd6;
+    background: white;
+}
+
+.convert {
+    font-weight: bold;
+    padding: 4px;
+    border-radius: 10px;
+    border-color: #78d69c;
+    color: #78d69c;
+    border: 1px solid #78d69c;
+    background: white;
+}
+
+.convert:hover {
+    background: #78d69c;
+    transition: 0.5s ease;
+    color: #fff;
+}
+
+button:hover {
+    background: #66a3b8;
+    transition: 0.5s ease;
+    color: #fff;
+}
+
+.output {
+    box-sizing: border-box;
+    font-size: 2vh;
+    text-align: center;
+    margin-top: 4px;
+    font-weight: bold;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 50vh;
+    font-size: 3vh;
+}
+
+
+/* Estilos para telas pequenas (até 576px) */
+
+@media only screen and (max-width: 576px) {
+    header {
+        font-size: 1rem;
+    }
+    header h1 {
+        color: #78bfd6;
+    }
+    header p {
+        margin-top: 2px;
+        margin-bottom: 2px;
+        font-size: 3.5vh;
+    }
+    main {
+        height: auto;
+    }
+    .conteiner {
+        flex-direction: column;
+    }
+    .conteiner input {
+        width: 60%;
+        padding: 1px 10px;
+        margin: 5px auto;
+    }
+    .conteiner input::placeholder {
+        font-size: 3vh;
+    }
+    .conteiner-out {
+        padding: 1px;
+        flex-direction: column;
+    }
+    button {
+        font-size: 2vh;
+        width: 60%;
+        margin: 10px auto;
+    }
+}
+
+
+/* Estilos para telas médias (de 577px a 768px) */
+
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+    header {
+        font-size: 1rem;
+    }
+    main {
+        height: auto;
+    }
+    .conteiner {
+        flex-direction: column;
+    }
+    .conteiner input {
+        width: 60%;
+        margin: 10px auto;
+    }
+    .conteiner-out {
+        flex-direction: column;
+    }
+    button {
+        width: 70%;
+        margin: 10px auto;
+    }
+    footer {
+        align-items: end;
+        height: 100px;
+    }
+}
+
+
+/* Estilos para telas médias a grandes (de 769px a 992px) */
+
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+    header {
+        font-size: 2.5rem;
+    }
+    main {
+        height: auto;
+    }
+    .conteiner {
+        flex-direction: row;
+    }
+    .conteiner input {
+        width: 50%;
+        margin: 10px;
+    }
+    .conteiner-out {
+        flex-direction: row;
+    }
+    button {
+        width: 50%;
+        margin: 10px;
+    }
+    footer {
+        align-items: end;
+        height: 120px;
+    }
+}
+
+
+/* Estilos para telas grandes (de 993px a 1200px) */
+
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+    header {
+        font-size: 2.5rem;
+    }
+    main {
+        height: auto;
+    }
+    .conteiner {
+        flex-direction: row;
+    }
+    .conteiner input {
+        width: 50%;
+        margin: 10px;
+    }
+    .conteiner-out {
+        flex-direction: row;
+    }
+    button {
+        width: 50%;
+        margin: 10px;
+    }
+    footer {
+        align-items: end;
+        height: 320px;
+    }
+}
+
+
+/* Estilos para telas extragrandes (acima de 1200px) */
+
+@media only screen and (min-width: 1201px) {
+    header {
+        font-size: 2rem;
+    }
+    .conteiner input::placeholder {
+        letter-spacing: 1px;
+        font-weight: bold;
+        font-size: 12px;
+    }
+    main {
+        height: auto;
+    }
+    .conteiner {
+        flex-direction: row;
+    }
+    .conteiner input {
+        width: 40%;
+        margin: 10px;
+    }
+    .conteiner-out {
+        flex-direction: row;
+    }
+    button {
+        padding: 14%s;
+        width: 40%;
+        margin: 10px;
+    }
+    footer {
+        align-items: end;
+        height: 340px;
+    }
+}
+
+
+/* Estilo para o Modo Escuro */
+
+.theme-checkbox {
+    margin-top: 2px;
+    margin-left: 1px;
+    position: fixed;
+    --toggle-size: 6px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 6.25em;
+    height: 3.125em;
+    background: -webkit-gradient(linear, left top, right top, color-stop(50%, #efefef), color-stop(50%, #2a2a2a)) no-repeat;
+    background: -o-linear-gradient(left, #efefef 50%, #2a2a2a 50%) no-repeat;
+    background: linear-gradient(to right, #efefef 50%, #2a2a2a 50%) no-repeat;
+    background-size: 205%;
+    background-position: 0;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 99em;
+    cursor: pointer;
+    font-size: var(--toggle-size);
+}
+
+.theme-checkbox::before {
+    content: "";
+    width: 2.25em;
+    height: 2.25em;
+    position: absolute;
+    top: 0.438em;
+    left: 0.438em;
+    background: -webkit-gradient(linear, left top, right top, color-stop(50%, #efefef), color-stop(50%, #2a2a2a)) no-repeat;
+    background: -o-linear-gradient(left, #efefef 50%, #2a2a2a 50%) no-repeat;
+    background: linear-gradient(to right, #efefef 50%, #2a2a2a 50%) no-repeat;
+    background-size: 205%;
+    background-position: 100%;
+    border-radius: 50%;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.theme-checkbox:checked::before {
+    left: calc(100% - 2.25em - 0.438em);
+    background-position: 0;
+}
+
+.theme-checkbox:checked {
+    background-position: 100%;
+}
+
+body.dark-mode {
+    background: #333;
+    color: #fff;
+}
+
+body.dark-mode button {
+    background: #333;
+}
+
+body.dark-mode .btnClean:hover {
+    border-color: #78d69c;
+    background: #898989;
+    transition: 0.5s ease;
+    color: #fff;
+}
+
+body.dark-mode #inputText {
+    background: #333;
+    border: 1px solid #78bfd6;
+    transition: border-color 0.5s ease;
+    color: #fff;
+}

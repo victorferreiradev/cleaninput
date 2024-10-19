@@ -1,99 +1,109 @@
-* {
+/* Define que a página inteira tenha altura de 100% */
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
 }
 
+/* Faz com que o body use Flexbox e distribua o conteúdo */
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espaça o conteúdo para manter o footer embaixo */
+    background-color: #f5f5f5;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
-    box-sizing: border-box;
+    transition: background-color 0.4s ease, color 0.4s ease; /* Transições de cor de fundo e texto */
 }
 
-header {
-    text-align: center;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
+header {    
+    padding-top: 2px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    background-color: #78bfd6;
+    color: white;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
 
-    
+}
+
+.header-box {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-box h1 {
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+    font-size: 5vh;
+}
+
+.header-box p {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 2vh;
 }
 
 main {
-    height: 50vh;
-    border-radius: 20px;
-    background: rgba(215, 215, 215, 0.1);
-    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
-    margin-left: 20%;
-    margin-right: 20%;
-}
-
-h1 {
-    letter-spacing: 1px;
-    text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.5);
-    font-size: 8vh;
-    color: #78bfd6;
-    white-space: nowrap;
-    /* Adiciona elipses (...) se o texto for muito longo para caber */
-    text-overflow: ellipsis;
-}
-
-header p {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    margin-top: 5px;
-    font-size: 12px;
+    align-items: center;
+    flex-direction: column;
 }
 
 .conteiner {
     display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;     /* Centraliza verticalmente */
+    flex-direction: column;  /* Centraliza os elementos na coluna */
+    width: 100%; /* Ajusta a largura do conteúdo */
+}
+
+.inputText {
+    width: 60%;
+    margin: 5px;
     justify-content: center;
-    gap: 0.6rem;
     text-align: center;
-    margin-top: 2%;
-    padding: 5px;
+    height: 5vh;
 }
 
-.conteiner input {
-    margin-top: 10px;
-    margin-bottom: 5px;
+
+.inputText {
     border-radius: 10px;
-    padding: 10px;
-    font-weight: bold;
     border: 1px solid #78bfd6;
-    transition: border-color 0.5s ease;
-}
+    font-weight: bold;
+    letter-spacing: 1px;
 
-.conteiner input::placeholder {
-    font-size: 10px;
-    text-align: center;
-}
-
-input:active {
-    border-color: #78bfd6;
 }
 
 .conteiner-out {
-    text-align: center;
+    justify-content: center;
+    align-items: center;
     margin-top: 5px;
+    
 }
 
 
-/* Estilo do botão */
-
-button {
+.output {
+    font-size: 2vh;
+    text-align: center;
+    margin: 5px;
     font-weight: bold;
-    padding: 4px;
+}
+
+
+.btn {
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 8px;
     border-radius: 10px;
-    border-color: #78bfd6;
-    color: #78bfd6;
     border: 1px solid #78bfd6;
-    background: white;
+    background-color: #f5f5f5;
+    margin: 5px;
+    
 }
 
 .convert {
-    font-weight: bold;
-    padding: 4px;
-    border-radius: 10px;
     border-color: #78d69c;
     color: #78d69c;
     border: 1px solid #78d69c;
@@ -106,199 +116,26 @@ button {
     color: #fff;
 }
 
-button:hover {
-    background: #66a3b8;
+.btnClean:hover {
+    background: #78bfd6;
     transition: 0.5s ease;
     color: #fff;
 }
 
-.output {
-    box-sizing: border-box;
-    font-size: 2vh;
-    text-align: center;
-    margin-top: 4px;
-    font-weight: bold;
-}
 
+/* Footer fixo no final da página */
 footer {
-    display: flex;
-    justify-content: center;
-    margin-top: 50vh;
-    font-size: 3vh;
-}
-
-
-/* Estilos para telas pequenas (até 576px) */
-
-@media only screen and (max-width: 576px) {
-    header {
-        font-size: 1rem;
-    }
-    header h1 {
-        color: #78bfd6;
-    }
-    header p {
-        margin-top: 2px;
-        margin-bottom: 2px;
-        font-size: 3.5vh;
-    }
-    main {
-        height: auto;
-    }
-    .conteiner {
-        flex-direction: column;
-    }
-    .conteiner input {
-        width: 60%;
-        padding: 1px 10px;
-        margin: 5px auto;
-    }
-    .conteiner input::placeholder {
-        font-size: 3vh;
-    }
-    .conteiner-out {
-        padding: 1px;
-        flex-direction: column;
-    }
-    button {
-        font-size: 2vh;
-        width: 60%;
-        margin: 10px auto;
-    }
-}
-
-
-/* Estilos para telas médias (de 577px a 768px) */
-
-@media only screen and (min-width: 577px) and (max-width: 768px) {
-    header {
-        font-size: 1rem;
-    }
-    main {
-        height: auto;
-    }
-    .conteiner {
-        flex-direction: column;
-    }
-    .conteiner input {
-        width: 60%;
-        margin: 10px auto;
-    }
-    .conteiner-out {
-        flex-direction: column;
-    }
-    button {
-        width: 70%;
-        margin: 10px auto;
-    }
-    footer {
-        align-items: end;
-        height: 100px;
-    }
-}
-
-
-/* Estilos para telas médias a grandes (de 769px a 992px) */
-
-@media only screen and (min-width: 769px) and (max-width: 992px) {
-    header {
-        font-size: 2.5rem;
-    }
-    main {
-        height: auto;
-    }
-    .conteiner {
-        flex-direction: row;
-    }
-    .conteiner input {
-        width: 50%;
-        margin: 10px;
-    }
-    .conteiner-out {
-        flex-direction: row;
-    }
-    button {
-        width: 50%;
-        margin: 10px;
-    }
-    footer {
-        align-items: end;
-        height: 120px;
-    }
-}
-
-
-/* Estilos para telas grandes (de 993px a 1200px) */
-
-@media only screen and (min-width: 993px) and (max-width: 1200px) {
-    header {
-        font-size: 2.5rem;
-    }
-    main {
-        height: auto;
-    }
-    .conteiner {
-        flex-direction: row;
-    }
-    .conteiner input {
-        width: 50%;
-        margin: 10px;
-    }
-    .conteiner-out {
-        flex-direction: row;
-    }
-    button {
-        width: 50%;
-        margin: 10px;
-    }
-    footer {
-        align-items: end;
-        height: 320px;
-    }
-}
-
-
-/* Estilos para telas extragrandes (acima de 1200px) */
-
-@media only screen and (min-width: 1201px) {
-    header {
-        font-size: 2rem;
-    }
-    .conteiner input::placeholder {
-        letter-spacing: 1px;
-        font-weight: bold;
-        font-size: 12px;
-    }
-    main {
-        height: auto;
-    }
-    .conteiner {
-        flex-direction: row;
-    }
-    .conteiner input {
-        width: 40%;
-        margin: 10px;
-    }
-    .conteiner-out {
-        flex-direction: row;
-    }
-    button {
-        padding: 14%s;
-        width: 40%;
-        margin: 10px;
-    }
-    footer {
-        align-items: end;
-        height: 340px;
-    }
+    text-align: center;
+    color: rgb(0, 0, 0);
+    padding: 1px 0;
+    width: 100%;
 }
 
 
 /* Estilo para o Modo Escuro */
 
 .theme-checkbox {
-    margin-top: 2px;
-    margin-left: 1px;
+    margin: 5px;
     position: fixed;
     --toggle-size: 6px;
     -webkit-appearance: none;
@@ -347,24 +184,142 @@ footer {
 }
 
 body.dark-mode {
-    background: #333;
+    background: #444;
     color: #fff;
 }
-
-body.dark-mode button {
+body.dark-mode header {
     background: #333;
+    color: #78bfd6;
+
+}
+
+body.dark-mode .btn {
+    background: #333;
+}
+
+body.dark-mode .btnClean {
+    color: #fff;
 }
 
 body.dark-mode .btnClean:hover {
-    border-color: #78d69c;
-    background: #898989;
+    background: #78bfd6;
     transition: 0.5s ease;
-    color: #fff;
+    color: #0061a5;
 }
 
-body.dark-mode #inputText {
+body.dark-mode .inputText {
     background: #333;
     border: 1px solid #78bfd6;
     transition: border-color 0.5s ease;
     color: #fff;
+}
+
+body.dark-mode .inputText::placeholder {
+    color: #efefef;
+}
+
+body.dark-mode footer {
+    background: #333;
+    color: #fff;
+}
+
+
+/* Ajustes para telas menores, até 480px de largura */
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .header-box h1 {
+        font-size: 4vh;
+    }
+
+    .header-box p {
+        font-size: 2vh;
+    }
+
+    .inputText {
+        width: 90%;
+        font-size: 1.6vh;
+    }
+
+    .conteiner-out {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 90%;
+        font-size: 1.8vh;
+    }
+
+    footer {
+        font-size: 1.4vh;
+        padding: 1px 0;
+    }
+}
+
+/* Ajustes para telas entre 481px e 768px de largura */
+@media (min-width: 481px) and (max-width: 768px) {
+    .header-box h1 {
+        font-size: 4.5vh;
+    }
+
+    .header-box p {
+        font-size: 2.5vh;
+    }
+
+    .inputText {
+        width: 80%;
+        font-size: 1.8vh;
+    }
+
+    .conteiner-out {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .btn {
+        width: 45%;
+        font-size: 2vh;
+    }
+
+    footer {
+        font-size: 1.6vh;
+        padding: 1px 0;
+    }
+}
+
+/* Ajustes para telas acima de 768px de largura */
+@media (min-width: 769px) {
+    .header-box h1 {
+        font-size: 5vh;
+    }
+
+    .header-box p {
+        font-size: 2.8vh;
+    }
+
+    .inputText {
+        width: 60%;
+        font-size: 2vh;
+    }
+
+    .conteiner-out {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .btn {
+        width: auto;
+        font-size: 2.2vh;
+    }
+
+    footer {
+        font-size: 1.8vh;
+        padding: 1px 0;
+    }
 }

@@ -1,59 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CleanInput </title>
+    <!-- Define o tipo do documento como HTML5 -->
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8, permitindo uso de caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta a escala e a largura da página para dispositivos móveis -->
+    <title>CleanInput </title> <!-- Título da página exibido na aba do navegador -->
 
+    <!-- Link para o arquivo CSS externo onde os estilos da página estão definidos -->
     <link rel="stylesheet" href="./CSS/styles.css">
 </head>
 <body>
 
-
-        <header>
-        <!-- Botão para ativar o modo escuro -->
+    <!-- Cabeçalho da página -->
+    <header>
+        <!-- Botão para alternar o modo escuro, acionando a função JavaScript 'alternarModoEscuro' -->
         <input type="checkbox" id="theme-checkbox" class="theme-checkbox" onclick="alternarModoEscuro() ">
-           <div class="header-box">
+        
+        <!-- Caixa de título e descrição do aplicativo -->
+        <div class="header-box">
+            <h1>CleanInput</h1> <!-- Título principal da página -->
+            <p>Trazendo produtividade ao trabalho!</p> <!-- Descrição curta sobre o objetivo do aplicativo -->
+        </div>
+    </header>
 
-                <h1>CleanInput</h1>
-                <!-- Descrição do objetivo do aplicativo -->
-                <p>Trazendo produtividade ao trabalho!</p>
-            </div>
-        </header>
-
-
+    <!-- Corpo principal do conteúdo -->
     <main>
-
         <div class="conteiner">
-
-
-            <!-- Campo de input -->
+            <!-- Campo de entrada de texto onde o usuário pode digitar o conteúdo -->
             <input type="text" id="inputText" class="inputText" placeholder="Digite o conteúdo aqui.">
 
-
+            <!-- Elemento onde o resultado das operações será exibido -->
             <div id="output" class="output"></div>
 
-            <!-- Botão para limpar caracteres -->
+            <!-- Botões para executar várias ações no conteúdo digitado -->
             <div class="conteiner-out">
+                <!-- Botão que chama a função JavaScript 'removerCaracteres' para limpar os caracteres do texto -->
                 <button class="btn btnClean" onclick="removerCaracteres()">Clean Caracteres.</button>
-                <!-- Saída do resultado -->
+                <!-- Botão que chama a função 'removerText' para limpar todo o texto -->
                 <button class="btn btnClean" onclick="removerText()">Clean Text.</button>
+                <!-- Botão que chama a função 'upperText' para converter o texto em maiúsculas -->
                 <button class="btn convert" onclick="upperText()">Convert Maiúsculo.</button>
+                <!-- Botão que chama a função 'lowerText' para converter o texto em minúsculas -->
                 <button class="btn convert" onclick="lowerText()">Convert Minúsculo.</button>
+                <!-- Botão que chama a função 'formatareEmCnpj' para formatar o texto como CNPJ -->
                 <button class="btn convert" onclick="formatareEmCnpj()">Convert CNPJ.</button>
             </div>
-
         </div>
-
-
     </main>
 
     <!-- Rodapé da página -->
     <footer>
+        <!-- Informação de crédito do autor -->
         <h6>@ Victor Ferreira</h6>
     </footer>
     
-
+    <!-- Importa o arquivo JavaScript externo onde as funções para os botões estão definidas -->
     <script src="./JS/script.js"></script>
 </body>
 </html>

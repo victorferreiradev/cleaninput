@@ -11,7 +11,7 @@ body {
     flex-direction: column;
     justify-content: space-between; /* Espaça o conteúdo para manter o footer embaixo */
     background-color: #f5f5f5;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     transition: background-color 0.4s ease, color 0.4s ease; /* Transições de cor de fundo e texto */
 }
 
@@ -34,7 +34,7 @@ header {
 
 .header-box h1 {
     margin-bottom: 4px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     font-size: 5vh;
 }
 
@@ -68,10 +68,13 @@ main {
     height: 5vh;
 }
 
+.inputText::placeholder {
+    letter-spacing: 2px;
+}
 
 .inputText {
     border-radius: 20px;
-    border: 1px solid #78bfd6;
+    border: 2px solid #78bfd6;
     background-color: #f5f5f5;
     font-weight: bold;
     letter-spacing: 1px;
@@ -100,32 +103,39 @@ main {
 
 .btn {
     font-weight: bold;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     padding: 8px;
-    border-radius: 10px;
-    border: 1px solid #78bfd6;
+    border-radius: 15px;
+    border: 2px solid #ffffff;
     background-color: #f5f5f5;
     margin: 5px;
     
 }
 
 .convert {
-    border-color: #78d69c;
-    color: #78d69c;
-    border: 1px solid #78d69c;
-    background: white;
-}
-
-.convert:hover {
     background: #78d69c;
     transition: 0.5s ease;
     color: #fff;
 }
 
-.btnClean:hover {
+.btnClean {
     background: #78bfd6;
     transition: 0.5s ease;
     color: #fff;
+}
+
+.convert:hover {
+    background-color: #f5f5f5;
+    border: 2px solid #78d69c;
+    transition: 0.5s ease;
+    color: #000000;
+}
+
+.btnClean:hover {
+    background-color: #f5f5f5;
+    border: 2px solid #78bfd6;
+    transition: 0.5s ease;
+    color: #000000;
 }
 
 
@@ -244,7 +254,7 @@ body.dark-mode footer {
     }
 
     .header-box h1 {
-        font-size: 4vh;
+        font-size: 5vh;
     }
 
     .header-box p {
@@ -274,50 +284,57 @@ body.dark-mode footer {
 }
 
 /* Ajustes para telas entre 481px e 768px de largura */
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 1431px) {
     .header-box h1 {
         font-size: 4.5vh;
     }
 
     .header-box p {
-        font-size: 2.5vh;
+        font-size: 2.3vh;
+        padding-bottom: 1px;
     }
 
     .inputText {
         width: 80%;
-        font-size: 1.8vh;
+        font-size: 2.2vh;
+    }
+
+    .inputText::placeholder {
+        letter-spacing: 2px;
+        font-size: 2.5vh;
     }
 
     .conteiner-out {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+        padding: 20px;
     }
 
     .btn {
         width: 45%;
-        font-size: 2vh;
+        font-size: 2.1vh;
     }
 
     footer {
-        font-size: 1.6vh;
+        font-size: 2vh;
         padding: 1px 0;
     }
 }
 
 /* Ajustes para telas acima de 768px de largura */
-@media (min-width: 769px) {
+@media (min-width: 1440px) {
     .header-box h1 {
-        font-size: 5vh;
+        font-size: 6vh;
     }
 
     .header-box p {
-        font-size: 2.8vh;
+        font-size: 3vh;
     }
 
     .inputText {
         width: 60%;
-        font-size: 2vh;
+        font-size: 3vh;
     }
 
     .conteiner-out {
@@ -327,11 +344,13 @@ body.dark-mode footer {
 
     .btn {
         width: auto;
-        font-size: 2.2vh;
+        font-size: 2.6vh;
     }
 
     footer {
-        font-size: 1.8vh;
+        font-size: 3vh;
         padding: 1px 0;
     }
 }
+
+

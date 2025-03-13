@@ -25,12 +25,21 @@
 
     <!-- Corpo principal do conteúdo -->
     <main>
+
         <div class="conteiner">
+
             <!-- Campo de entrada de texto onde o usuário pode digitar o conteúdo -->
             <input type="text" id="inputText" class="inputText" placeholder="Digite o conteúdo aqui.">
 
+
+
             <!-- Elemento onde o resultado das operações será exibido -->
             <div id="output" class="output"></div>
+
+            <span class="info" id="info" style="cursor: pointer;">Duvidas❓</span>
+            <div id="tooltip" style="display: none; background: black; color: white; padding: 5px; border-radius: 5px; position: absolute;"></div>
+
+
 
             <!-- Botões para executar várias ações no conteúdo digitado -->
             <div class="conteiner-out">
@@ -46,12 +55,13 @@
                 <button class="btn convert" onclick="formatareEmCnpj()">CONVERT CNPJ</button>
             </div>
         </div>
+
     </main>
 
     <!-- Rodapé da página -->
     <footer>
         <!-- Informação de crédito do autor -->
-        <h6>@ Victor Ferreira</h6>
+        <a href="https://github.com/victorferreiradev">@ Victor Ferreira</a>
     </footer>
     
     <!-- Importa o arquivo JavaScript externo onde as funções para os botões estão definidas -->

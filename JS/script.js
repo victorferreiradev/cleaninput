@@ -26,7 +26,7 @@ function removerCaracteres() {
     // Recupera o valor do input
     let inputValor = document.getElementById('inputText').value;
     // Define os caracteres a serem removidos
-    let caracteresParaRemover = ['.', ',', ';', '-', '/', '?', '@', ' ', ':'];
+    let caracteresParaRemover = ['.', ',', ';', '-', '/', '?', '@', ' ', ':', '%', '$', '#', '*', '(', ')', '[', ']', '{', '}', '&', '@', '¨', '!'];
 
     // Itera sobre cada caractere a ser removido
     for (let charToRemove of caracteresParaRemover) {
@@ -51,41 +51,37 @@ function removerCaracteres() {
 }
 
 function removerText() {
-    //Recuperar o valor do input 
+    // Recuperar o valor do input 
     let inputInText = document.getElementById('inputText').value;
 
-    // Define os caracteres a serem removidos. (Array) 
+    // Define os caracteres a serem removidos (minúsculas e maiúsculas)
     let alfabeto = [];
 
-    // Loop de 'a'... 'z'
+    // Loop para adicionar 'a' a 'z' e 'A' a 'Z'
     for (let i = 97; i <= 122; i++) {
-        alfabeto.push(String.fromCharCode(i)); // Converte o código ASCII para caractere e adiciona ao array
+        alfabeto.push(String.fromCharCode(i));      // Adiciona letra minúscula
+        alfabeto.push(String.fromCharCode(i - 32)); // Adiciona letra maiúscula correspondente
     }
 
-    // Itera sobre cada caractere a ser removido
+    // Remove os caracteres do texto
     for (let textToRemove of alfabeto) {
-        // Enquanto houver ocorrências do caractere na string de entrada
-        while (inputInText.includes(textToRemove)) {
-            // Remove todas as ocorrências do caractere da string de entrada
-            inputInText = inputInText.replace(textToRemove, '');
-        }
+        inputInText = inputInText.replaceAll(textToRemove, ''); 
     }
-
 
     // Atualiza o valor do input com os caracteres removidos
     document.getElementById('inputText').value = inputInText;
+
     // Seleciona a div de saída
-    copiarTexto()
+    copiarTexto();
 
     msg('Texto removido!');
 
     // Limpa a mensagem de sucesso após 2 segundos
     setTimeout(() => {
         document.getElementById('inputText').value = '';
-
     }, resetTemp);
-
 }
+
 
 function upperText() {
     let inputInText = document.getElementById('inputText').value;
@@ -140,22 +136,6 @@ function copiarTexto() {
 
 }
 
-// Função para alternar entre os modos claro e escuro
-function alternarModoEscuro() {
-    const body = document.body;
-    // Verifica se o modo escuro está ativado
-    if (body.classList.contains('dark-mode')) {
-        // Se o modo escuro estiver ativado, remove a classe 'dark-mode' e adiciona a classe 'light-mode'
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-    } else {
-        // Se o modo escuro não estiver ativado, remove a classe 'light-mode' e adiciona a classe 'dark-mode'
-        body.classList.remove('light-mode');
-        body.classList.add('dark-mode');
-    }
-}
-
-
 function formatareEmCnpj() {
     // Recupera o valor do input
     let inputValor = document.getElementById('inputText').value;
@@ -205,3 +185,34 @@ function formatareEmCnpj() {
 
     }, 10000);
 }
+
+
+// Função para alternar entre os modos claro e escuro
+function alternarModoEscuro() {
+    const body = document.body;
+    // Verifica se o modo escuro está ativado
+    if (body.classList.contains('dark-mode')) {
+        // Se o modo escuro estiver ativado, remove a classe 'dark-mode' e adiciona a classe 'light-mode'
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+    } else {
+        // Se o modo escuro não estiver ativado, remove a classe 'light-mode' e adiciona a classe 'dark-mode'
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+    }
+}
+
+  const info = document.getElementById("info");
+  const tooltip = document.getElementById("tooltip");
+
+  info.addEventListener("mouseenter", (event) => {
+    tooltip.style.display = "block";
+    tooltip.style.left = event.pageX + "px";
+    tooltip.style.top = event.pageY + "px";
+    tooltip.textContent = "Caracteres a serem removidos: '!','.', ',', ';', '-', '/', '?', '@', ' ', ':', '%', '$', '#', '*', '(', ')', '[', ']', '{', '}', '&', '@', '¨'";
+  });
+
+  info.addEventListener("mouseleave", () => {
+    tooltip.style.display = "none";
+  });
+

@@ -1,70 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <!-- Define o tipo do documento como HTML5 -->
-    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8, permitindo uso de caracteres especiais -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta a escala e a largura da página para dispositivos móveis -->
-    <title>CleanInput </title> <!-- Título da página exibido na aba do navegador -->
+    <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8, permitindo uso de caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ajusta a escala e a largura da página para dispositivos móveis -->
+    <title>CleanInput</title> <!-- Título da página exibido na aba do navegador -->
+
+    <!-- Importação de fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
     <!-- Link para o arquivo CSS externo onde os estilos da página estão definidos -->
     <link rel="stylesheet" href="./CSS/styles.css">
 </head>
+
 <body>
+    <!-- Link para acessibilidade - permite pular diretamente para o conteúdo principal -->
+    <a class="skip-link" href="#main-content">Ir para o conteúdo principal</a>
 
     <!-- Cabeçalho da página -->
-    <header>
-        <!-- Botão para alternar o modo escuro, acionando a função JavaScript 'alternarModoEscuro' -->
-        <input type="checkbox" id="theme-checkbox" class="theme-checkbox" onclick="alternarModoEscuro() ">
-        
-        <!-- Caixa de título e descrição do aplicativo -->
-        <div class="header-box">
-            <h1>CleanInput</h1> <!-- Título principal da página -->
-            <p>Trazendo produtividade ao trabalho!</p> <!-- Descrição curta sobre o objetivo do aplicativo -->
+    <header class="main-header">
+        <div class="header-content">
+            <h1 class="logo">
+                <span aria-hidden="true">🧹</span> <!-- Ícone decorativo -->
+                CleanInput
+            </h1>
+            <!-- Alternador de tema claro/escuro -->
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" aria-label="Alternar modo escuro">
+                    <input type="checkbox" id="theme-checkbox" class="theme-checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
         </div>
+        <p class="header-description">Transforme e limpe textos com um clique</p>
     </header>
 
     <!-- Corpo principal do conteúdo -->
-    <main>
-
-        <div class="conteiner">
-
-            <!-- Campo de entrada de texto onde o usuário pode digitar o conteúdo -->
-            <input type="text" id="inputText" class="inputText" placeholder="Digite o conteúdo aqui.">
-
-
-
-            <!-- Elemento onde o resultado das operações será exibido -->
-            <div id="output" class="output"></div>
-
-            <span class="info" id="info" style="cursor: pointer;">Duvidas❓</span>
-            <div id="tooltip" style="display: none; background: black; color: white; padding: 5px; border-radius: 5px; position: absolute;"></div>
-
-
-
-            <!-- Botões para executar várias ações no conteúdo digitado -->
-            <div class="conteiner-out">
-                <!-- Botão que chama a função JavaScript 'removerCaracteres' para limpar os caracteres do texto -->
-                <button class="btn btnClean" onclick="removerCaracteres()">CLEAN CARACTERES</button>
-                <!-- Botão que chama a função 'removerText' para limpar todo o texto -->
-                <button class="btn btnClean" onclick="removerText()">CLEAN TEXT</button>
-                <!-- Botão que chama a função 'upperText' para converter o texto em maiúsculas -->
-                <button class="btn convert" onclick="upperText()">CONVERT MAIÚSCULO</button>
-                <!-- Botão que chama a função 'lowerText' para converter o texto em minúsculas -->
-                <button class="btn convert" onclick="lowerText()">CONVERT MINÚSCULO</button>
-                <!-- Botão que chama a função 'formatareEmCnpj' para formatar o texto como CNPJ -->
-                <button class="btn convert" onclick="formatareEmCnpj()">CONVERT CNPJ</button>
+    <main id="main-content" class="main-content">
+        <!-- Seção de entrada de texto -->
+        <section class="input-section" aria-labelledby="input-label">
+            <label id="input-label" class="sr-only">Entrada de texto</label>
+            <!-- Rótulo acessível para a área de entrada de texto -->
+            <div class="input-wrapper">
+                <textarea id="inputText" class="text-input" placeholder="Cole ou digite seu texto aqui..."
+                    aria-label="Área de entrada de texto" rows="4"></textarea>
+                <div class="input-actions">
+                    <!-- Botão para limpar o texto -->
+                    <button class="icon-button" aria-label="Limpar texto" onclick="limparTexto()">
+                        ✕
+                    </button>
+                    <!-- Botão para copiar o texto -->
+                    <button class="icon-button" aria-label="Copiar texto" onclick="copiarTexto()">
+                        ⎘
+                    </button>
+                </div>
             </div>
-        </div>
+        </section>
 
+        <!-- Seção de ferramentas -->
+        <section class="tools-section" aria-labelledby="tools-title">
+            <!-- Área de saída para mensagens -->
+             <div class="output-wrapper">
+                <output class="output-status" id="output" aria-live="polite"></output>
+             </div>
+            <h2 id="tools-title" class="section-title">Ferramentas</h2>
+            <div class="tool-grid">
+                <!-- Botões que aplicam transformações no texto -->
+                <button class="tool-card" onclick="limparCaracteres()">
+                    <span class="tool-icon">🔠</span>
+                    Limpar Caracteres
+                </button>
+                <button class="tool-card" onclick="converterParaMaiusculas()">
+                    <span class="tool-icon">⤴️</span>
+                    Maiúsculas
+                </button>
+                <button class="tool-card" onclick="converterParaMinusculas()">
+                    <span class="tool-icon">⤵️</span>
+                    Minúsculas
+                </button>
+                <button class="tool-card" onclick="limparApenasTexto()">
+                    <span class="tool-icon">🧹</span>
+                    Limpar Apenas Texto
+                </button>
+                <button class="tool-card" onclick="formatarCNPJ()">
+                    <span class="tool-icon">🏢</span>
+                    Formatar CNPJ
+                </button>
+            </div>
+        </section>
+
+
+
+        <!-- Seção de feedback com formulário do Google Forms -->
+        <section class="feedback-section">
+            <h2 class="section-title">Deixe seu feedback</h2>
+            <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSdt8uSgOtqtIdlsBz39_blkk1Z_1vz72E5agYr5mbd_oWoWXA/viewform?usp=header"
+                width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">
+                Carregando…
+            </iframe>
+        </section>
     </main>
 
     <!-- Rodapé da página -->
-    <footer>
-        <!-- Informação de crédito do autor -->
-        <a href="https://github.com/victorferreiradev">@ Victor Ferreira</a>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>Desenvolvido por <a href="https://github.com/victorferreiradev" target="_blank" rel="noopener">Victor
+                    Ferreira</a></p>
+            <div class="accessibility-options">
+                <!-- Botões para ajustar o tamanho da fonte -->
+                <button class="text-size-button" onclick="aumentarFonte()">A+</button>
+                <button class="text-size-button" onclick="diminuirFonte()">A-</button>
+            </div>
+        </div>
     </footer>
-    
+
     <!-- Importa o arquivo JavaScript externo onde as funções para os botões estão definidas -->
     <script src="./JS/script.js"></script>
 </body>
+
 </html>

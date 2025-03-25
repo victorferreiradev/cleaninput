@@ -1,218 +1,207 @@
-let resetTemp = 10000;
+/**
+ * CleanInput - Aplicativo para limpeza e formatação de texto
+ * 
+ * Este script contém todas as funções necessárias para o funcionamento
+ * do aplicativo CleanInput, incluindo manipulação de texto, cópia para
+ * área de transferência e controle de tema.
+ */
 
-// Inclusão do script JavaScript
+// Tempo em milissegundos para limpar mensagens e campos (10 segundos)
+const TEMPO_RESET = 10000;
+
+// Elementos DOM globais
+const inputTexto = document.getElementById('inputText');
+const outputDiv = document.getElementById('output');
+const themeCheckbox = document.getElementById('theme-checkbox');
+
+// Inicialização quando o DOM estiver carregado
 document.addEventListener("DOMContentLoaded", function() {
-    let docTitle = document.title;
+    // Configuração do título dinâmico
+    const tituloOriginal = document.title;
+    
     window.addEventListener("blur", () => {
-        document.title = "Volte!";
-    })
+        document.title = "Volte!"; // Altera o título da página quando a aba perde o foco
+    });
+    
     window.addEventListener("focus", () => {
-        document.title = docTitle;
-    })
+        document.title = tituloOriginal; // Restaura o título original ao voltar para a aba
+    });
+    
+    // Configuração do tema
+    themeCheckbox.addEventListener('change', alternarModoEscuro);
+    
+    // Verifica preferência de tema do usuário
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        themeCheckbox.checked = true;
+        document.body.classList.add('dark-mode');
+    }
 });
 
-function msg(mensagem) {
-    // Seleciona a div de saída
-    let outputDiv = document.getElementById('output');
-    // Insere a mensagem na div de saída
+/**
+ * Exibe uma mensagem temporária na área de output
+ * @param {string} mensagem - Texto a ser exibido
+ */
+function exibirMensagem(mensagem) {
     outputDiv.innerHTML = mensagem;
-    // Limpa a mensagem de sucesso após 2 segundos
     setTimeout(() => {
-        outputDiv.innerText = '';
-    }, resetTemp);
+        outputDiv.innerText = ''; // Remove a mensagem após 10 segundos
+    }, TEMPO_RESET);
 }
 
-function removerCaracteres() {
-    // Recupera o valor do input
-    let inputValor = document.getElementById('inputText').value;
-    // Define os caracteres a serem removidos
-    let caracteresParaRemover = ['.', ',', ';', '-', '/', '?', '@', ' ', ':', '%', '$', '#', '*', '(', ')', '[', ']', '{', '}', '&', '@', '¨', '!'];
-
-    // Itera sobre cada caractere a ser removido
-    for (let charToRemove of caracteresParaRemover) {
-        // Enquanto houver ocorrências do caractere na string de entrada
-        while (inputValor.includes(charToRemove)) {
-            // Remove todas as ocorrências do caractere da string de entrada
-            inputValor = inputValor.replace(charToRemove, '');
-        }
+/**
+ * Limpa todos os caracteres especiais do texto, mantendo apenas letras e números
+ */
+function limparCaracteres() {
+    const textoOriginal = inputTexto.value;
+    
+    // Lista de caracteres a serem removidos
+    const caracteresParaRemover = ['.', ',', ';', '-', '/', '?', '@', ' ', ':', '%', '$', '#', '*', '(', ')', '[', ']', '{', '}', '&', '@', '¨', '!'];
+    
+    let textoLimpo = textoOriginal;
+    
+    // Remove cada caractere da lista
+    for (let caractere of caracteresParaRemover) {
+        textoLimpo = textoLimpo.split(caractere).join('');
     }
-
-    // Atualiza o valor do input com os caracteres removidos
-    document.getElementById('inputText').value = inputValor;
-    copiarTexto()
-
-    msg("Limpeza feita e copiada!");
-
-    // Limpa a mensagem de sucesso após 2 segundos
-    setTimeout(() => {
-        document.getElementById('inputText').value = '';
-
-    }, resetTemp);
-}
-
-function removerText() {
-    // Recuperar o valor do input 
-    let inputInText = document.getElementById('inputText').value;
-
-    // Define os caracteres a serem removidos (minúsculas e maiúsculas)
-    let alfabeto = [];
-
-    // Loop para adicionar 'a' a 'z' e 'A' a 'Z'
-    for (let i = 97; i <= 122; i++) {
-        alfabeto.push(String.fromCharCode(i));      // Adiciona letra minúscula
-        alfabeto.push(String.fromCharCode(i - 32)); // Adiciona letra maiúscula correspondente
-    }
-
-    // Remove os caracteres do texto
-    for (let textToRemove of alfabeto) {
-        inputInText = inputInText.replaceAll(textToRemove, ''); 
-    }
-
-    // Atualiza o valor do input com os caracteres removidos
-    document.getElementById('inputText').value = inputInText;
-
-    // Seleciona a div de saída
+    
+    inputTexto.value = textoLimpo;
     copiarTexto();
-
-    msg('Texto removido!');
-
-    // Limpa a mensagem de sucesso após 2 segundos
-    setTimeout(() => {
-        document.getElementById('inputText').value = '';
-    }, resetTemp);
+    exibirMensagem("Limpeza feita e copiada para área de transferência!");
 }
 
-
-function upperText() {
-    let inputInText = document.getElementById('inputText').value;
-    let upText = inputInText.toUpperCase();
-    document.getElementById('inputText').value = upText;
+/**
+ * Limpa apenas caracteres de texto (letras), mantendo números e símbolos
+ */
+function limparApenasTexto() {
+    let texto = inputTexto.value;
+    
+    // Remove todas as letras (maiúsculas e minúsculas)
+    texto = texto.replace(/[a-zA-Z]/g, '');
+    
+    inputTexto.value = texto;
     copiarTexto();
-    msg('Resultado:  ' + upText);
-
-    // Limpa a mensagem de sucesso após 2 segundos
-    setTimeout(() => {
-        document.getElementById('inputText').value = '';
-
-    }, resetTemp);
+    exibirMensagem('Texto removido e copiado para área de transferência!');
 }
 
-function lowerText() {
-    let inputInText = document.getElementById('inputText').value;
-    let lText = inputInText.toLowerCase();
-    document.getElementById('inputText').value = lText;
+/**
+ * Converte todo o texto para maiúsculas
+ */
+function converterParaMaiusculas() {
+    const texto = inputTexto.value.toUpperCase();
+    inputTexto.value = texto;
     copiarTexto();
-
-    msg('Resultado:  ' + lText);
-
-
-    // Limpa a mensagem de sucesso após 2 segundos
-    setTimeout(() => {
-        document.getElementById('inputText').value = '';
-
-    }, resetTemp);
+    exibirMensagem('Texto convertido para MAIÚSCULAS e copiado!');
 }
 
+/**
+ * Converte todo o texto para minúsculas
+ */
+function converterParaMinusculas() {
+    const texto = inputTexto.value.toLowerCase();
+    inputTexto.value = texto;
+    copiarTexto();
+    exibirMensagem('Texto convertido para minúsculas e copiado!');
+}
 
+/**
+ * Copia o texto do input para a área de transferência
+ */
 function copiarTexto() {
-    // Seleciona o elemento que contém o texto que você deseja copiar
-    let copyText = document.getElementById('inputText');
+    inputTexto.select();
+    inputTexto.setSelectionRange(0, 99999); // Para dispositivos móveis
+    
+    try {
+        document.execCommand('copy'); // Executa o comando de cópia
+        exibirMensagem('Texto copiado para area de transferência!');
 
-    let texto = copyText.value;
-
-    // Cria um copyText de área de transferência temporário
-    let inputTemporario = document.createElement('textarea');
-    inputTemporario.value = texto;
-
-    // Adiciona o copyText temporário ao documento
-    document.body.appendChild(inputTemporario);
-
-    // Seleciona e copia o texto dentro do copyText temporário
-    inputTemporario.select();
-    document.execCommand('copy');
-
-    // Remove o copyText temporário do documento
-    document.body.removeChild(inputTemporario);
-
+    } catch (err) {
+        console.error('Falha ao copiar texto: ', err);
+    }
+    if (inputTexto.value === '') {
+        exibirMensagem('Nenhum texto para copiar!');
+    }
+    
+    window.getSelection().removeAllRanges(); // Remove a seleção após a cópia
 }
 
-function formatareEmCnpj() {
-    // Recupera o valor do input
-    let inputValor = document.getElementById('inputText').value;
-
-    // Remove qualquer caractere que não seja número
-    inputValor = inputValor.replace(/\D/g, '');
-
-    let resultado = '';
-
-    // Itera sobre cada caractere, pulando de 3 em 3
-    for (let i = 0; i < inputValor.length; i++) {
-        resultado += inputValor[i];
-
-        // Adiciona um ponto após 2 ou 5 caracteres para o formato CNPJ
-        if (i === 1 || i === 4) {
-            resultado += '.';
-            console.log(resultado);
-        }
-
-        // Adiciona uma barra após o oitavo caractere
-        if (i === 7) {
-            resultado += '/';
-            console.log(resultado);
-
-        }
-
-        // Adiciona um hífen após o 12º caractere
-        if (i === 11) {
-            resultado += '-';
-            console.log(resultado);
-
-        }
-    }
-
-    // Atualiza o valor do input com a formatação
-    document.getElementById('inputText').value = resultado;
-
-    // Chama a função de copiar (presumindo que você a tenha definida)
+/**
+ * Formata um CNPJ no padrão 00.000.000/0000-00
+ */
+function formatarCNPJ() {
+    let cnpj = inputTexto.value.replace(/\D/g, ''); // Remove tudo que não é dígito
+    
+    // Aplica a formatação
+    cnpj = cnpj.replace(/^(\d{2})(\d)/, '$1.$2');
+    cnpj = cnpj.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
+    cnpj = cnpj.replace(/\.(\d{3})(\d)/, '.$1/$2');
+    cnpj = cnpj.replace(/(\d{4})(\d)/, '$1-$2');
+    
+    // Limita a 18 caracteres (tamanho do CNPJ formatado)
+    cnpj = cnpj.substring(0, 18);
+    
+    inputTexto.value = cnpj;
     copiarTexto();
-
-    // Mostra a mensagem de sucesso
-    msg("Formatação feita e copiada!");
-
-    // Limpa a mensagem de sucesso após 2 segundos (caso queira limpar o input)
-    setTimeout(() => {
-        document.getElementById('inputText').value = '';
-
-    }, 10000);
+    exibirMensagem("CNPJ formatado e copiado!");
 }
 
+/**
+ * Limpa completamente o campo de texto
+ */
+function limparTexto() {
+    inputTexto.value = '';
+    exibirMensagem("Campo limpo!");
+}
 
-// Função para alternar entre os modos claro e escuro
+/**
+ * Alterna entre os temas claro e escuro
+ */
 function alternarModoEscuro() {
+    document.body.classList.toggle('dark-mode', themeCheckbox.checked);
+    localStorage.setItem('modo-escuro', themeCheckbox.checked); // Salva preferência
+}
+
+/**
+ * Aumenta o tamanho da fonte em 1px
+ */
+function aumentarFonte() {
+    ajustarTamanhoFonte(1);
+}
+
+/**
+ * Diminui o tamanho da fonte em 1px
+ */
+function diminuirFonte() {
+    ajustarTamanhoFonte(-1);
+}
+
+/**
+ * Ajusta o tamanho da fonte baseado no incremento
+ * @param {number} incremento - Valor a ser adicionado/subtraído do tamanho atual
+ */
+function ajustarTamanhoFonte(incremento) {
     const body = document.body;
-    // Verifica se o modo escuro está ativado
-    if (body.classList.contains('dark-mode')) {
-        // Se o modo escuro estiver ativado, remove a classe 'dark-mode' e adiciona a classe 'light-mode'
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-    } else {
-        // Se o modo escuro não estiver ativado, remove a classe 'light-mode' e adiciona a classe 'dark-mode'
-        body.classList.remove('light-mode');
-        body.classList.add('dark-mode');
+    const tamanhoAtual = parseFloat(getComputedStyle(body).fontSize);
+    const novoTamanho = tamanhoAtual + incremento;
+    
+    if (novoTamanho >= 12 && novoTamanho <= 24) {
+        body.style.fontSize = novoTamanho + 'px';
+        localStorage.setItem('tamanho-fonte', novoTamanho);
     }
 }
 
-  const info = document.getElementById("info");
-  const tooltip = document.getElementById("tooltip");
+// Carrega preferências salvas
+function carregarPreferencias() {
+    const modoEscuro = localStorage.getItem('modo-escuro') === 'true';
+    if (modoEscuro) {
+        themeCheckbox.checked = true;
+        document.body.classList.add('dark-mode');
+    }
+    
+    const tamanhoFonte = localStorage.getItem('tamanho-fonte');
+    if (tamanhoFonte) {
+        document.body.style.fontSize = tamanhoFonte + 'px';
+    }
+}
 
-  info.addEventListener("mouseenter", (event) => {
-    tooltip.style.display = "block";
-    tooltip.style.left = event.pageX + "px";
-    tooltip.style.top = event.pageY + "px";
-    tooltip.textContent = "Caracteres a serem removidos: '!','.', ',', ';', '-', '/', '?', '@', ' ', ':', '%', '$', '#', '*', '(', ')', '[', ']', '{', '}', '&', '@', '¨'";
-  });
-
-  info.addEventListener("mouseleave", () => {
-    tooltip.style.display = "none";
-  });
-
+// Inicializa as preferências
+carregarPreferencias();

@@ -8,6 +8,7 @@
 
 // Tempo em milissegundos para limpar mensagens e campos (10 segundos)
 const TEMPO_RESET = 10000;
+const TEMPO_RESET_CAMPO = 30000;
 
 // Elementos DOM globais
 const inputTexto = document.getElementById('inputText');
@@ -48,6 +49,14 @@ function exibirMensagem(mensagem) {
     }, TEMPO_RESET);
 }
 
+// Limpa o campo de texto depois de 30 segundos. Para Functions limparApenasTexto e limparCaracteres.
+function limparCampo() {
+    setTimeout(() => {
+        inputTexto.value = ''; 
+    }, TEMPO_RESET_CAMPO);
+}
+
+
 /**
  * Limpa todos os caracteres especiais do texto, mantendo apenas letras e números
  */
@@ -67,6 +76,7 @@ function limparCaracteres() {
     inputTexto.value = textoLimpo;
     copiarTexto();
     exibirMensagem("Limpeza feita e copiada para área de transferência!");
+    limparCampo();
 }
 
 /**
@@ -81,7 +91,9 @@ function limparApenasTexto() {
     inputTexto.value = texto;
     copiarTexto();
     exibirMensagem('Texto removido e copiado para área de transferência!');
+    limparCampo();
 }
+
 
 /**
  * Converte todo o texto para maiúsculas

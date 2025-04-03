@@ -1,52 +1,60 @@
-## CleanInput: Limpeza de Input
+## CleanInput: Limpeza e Formatação de Texto
 
 ## 📖 Descrição:
 
-CleanInput é uma ferramenta online que permite remover caracteres especiais e manipular texto de forma simples e eficiente. Seu objetivo principal é facilitar a limpeza de dados, preparar textos para análise ou deixar o texto mais legível.
+CleanInput é uma ferramenta online que permite limpar, formatar e manipular texto de maneira simples e eficiente. O principal objetivo é facilitar a preparação de textos para análise, remoção de caracteres indesejados e padronização de informações.
 
 ## 💡 Funcionalidades:
 
-* Remove os seguintes caracteres especiais: '.', ',', ';', '-', '/', '?', '@', ' '.
-* Permite remover letras do alfabeto (a-z).
-* Mostra uma mensagem de confirmação após a limpeza.
-* Copia automaticamente o texto limpo para a área de transferência.
+✅ Remove caracteres especiais: '.', ',', ';', '-', '/', '?', '@', ' ', ':', '%', '$', '#', '*', '(', ')', '[', ']', '{', '}', '&', '¨', '!'.  
+✅ Remove letras do alfabeto (mantendo apenas números e símbolos).  
+✅ Converte texto para MAIÚSCULAS ou minúsculas.  
+✅ Copia automaticamente o texto formatado para a área de transferência.  
+✅ Formata CNPJ no padrão 00.000.000/0000-00.  
+✅ Ajusta o tamanho da fonte para melhor legibilidade.  
+✅ Alterna entre tema claro e escuro.  
+✅ Mantém preferências de tema e tamanho de fonte salvas no navegador.  
 
 ## 📝 Como usar:
 
-1. Digite o texto que deseja limpar na caixa de entrada.
-2. Clique no botão "Clean Caracteres." para remover os caracteres especiais.
-3. Se desejar remover letras do alfabeto, clique no botão "Remover Texto".
-4. O texto limpo será exibido na caixa de saída.
-5. O texto limpo será automaticamente copiado para a área de transferência.
+1. Digite ou cole o texto que deseja modificar na caixa de entrada.
+2. Escolha a ação desejada:
+   - **Limpar caracteres especiais**: Remove pontuações e símbolos específicos.
+   - **Remover apenas texto**: Mantém apenas números e símbolos.
+   - **Converter para maiúsculas ou minúsculas**.
+   - **Formatar CNPJ**: Transforma uma sequência de números no formato correto.
+   - **Ajustar tamanho da fonte**.
+   - **Ativar modo escuro**.
+3. O texto modificado será automaticamente copiado para a área de transferência.
+4. Uma mensagem de confirmação será exibida.
 
-## Exemplo:
+## ✏️ Exemplo:
 
-### ✏️ Entrada:
-
+### Entrada:
 ```
-Este é um texto com caracteres especiais.,;-/?!@
-```
-
-### 🔎 Saída:
-
-```
-Esteeumtextocomcaracteresespeciais
+Este é um texto com caracteres especiais: @2024!!
 ```
 
-## Observações:
+### Saída:
+```
+Esteeumtextocomcaracteresespeciais2024
+```
 
-* A ferramenta é gratuita e pode ser usada por qualquer pessoa.
-* O código-fonte da ferramenta está disponível no GitHub: [Victor Ferreira - CleanInput](https://github.com/victorferreiradev/cleaninput/)
-* Sinta-se à vontade para contribuir com o projeto ou enviar sugestões de melhorias.
+## 📌 Observações:
 
-## Licença
+🔹 O CleanInput é gratuito e pode ser utilizado por qualquer pessoa.  
+🔹 O código-fonte está disponível no GitHub: [Victor Ferreira - CleanInput](https://github.com/victorferreiradev/cleaninput/)  
+🔹 Contribuições e sugestões de melhorias são bem-vindas!  
+
+## 📜 Licença:
 
 Este projeto é licenciado sob a Licença MIT. Para mais detalhes, consulte o arquivo [LICENSE](https://github.com/victorferreiradev/cleaninput/blob/main/LICENSE).
 
-## Autor
+## 👨‍💻 Autor:
 
-Victor Ferreira
+**Victor Ferreira**  
+🔗 [GitHub](https://github.com/victorferreiradev)  
 
-[GitHub](https://github.com/victorferreiradev)
 
----
+
+
